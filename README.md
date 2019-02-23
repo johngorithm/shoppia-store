@@ -1,6 +1,8 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Shoppia Store
+Shoppia is an e-commerce web site powered by React and Redux
 
-## Available Scripts
+
+### Available Scripts
 
 In the project directory, you can run:
 
