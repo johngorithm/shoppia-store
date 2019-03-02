@@ -1,4 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import {Switch, Route} from 'react-router-dom';
+
+
+import NavBar from './components/molecules/NavBar/NavBar';
+import ProductList from './components/molecules/ProductList/ProductList';
+import Detail from './components/molecules/Detail/Detail';
+import Cart from './components/molecules/Cart/Cart';
+import Default from './components/molecules/Default/Default';
+
 // import logo from './logo.svg';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -7,16 +16,15 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-6">Card One</div>
-          <div className="col-6">
-            <span>
-              <i className="fas fa-home"></i>
-            </span>
-          </div>
-        </div>
-      </div>
+      <Fragment>
+        <NavBar />
+        <Switch>
+          <Route exact path="/" component={ProductList} />
+          <Route exact path="/detail" component={Detail} />
+          <Route exact path="/cart" component={Cart} />
+          <Route component={Default} />
+        </Switch>
+      </Fragment>
     );
   }
 }
