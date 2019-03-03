@@ -28,7 +28,11 @@ class NavBar extends React.Component {
           </ul>
 
           <Link to="/cart" className="ml-auto">
-            <Button><i className="fas fa-cart-plus"><span>My Cart</span></i></Button>
+            <Button
+              textColor="tomato"
+              borderColor="transparent"
+            ><i className="fas fa-cart-plus"><span>My Cart</span></i>
+            </Button>
           </Link>
         </StyledNav>
       </Fragment>
@@ -38,7 +42,7 @@ class NavBar extends React.Component {
 
 // NavBar.propTypes = {};
 const StyledNav = styled.nav`
-  background: var(--mainRed) !important;
+  background: var(--darkGray) !important;
   .nav-link {
     color: white;
   }
