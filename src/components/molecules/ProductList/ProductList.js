@@ -1,7 +1,6 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import Product from '../Product/Product';
-
-// import PropTypes from 'prop-types';
+import { Consumer } from '../../../store/context';
 
 class ProductList extends React.Component {
 
@@ -9,13 +8,24 @@ class ProductList extends React.Component {
 
   render() {
     return (
-      <Fragment>
-        <Product />
-      </Fragment>
+      <div className="container">
+        <div className="row">
+          <Consumer>
+              {(value) => {
+                const { products } = value;
+                if (products) {
+                  return products.map(product => {
+                    return <Product key={product.id} product={product} />
+                  })
+                } else {
+                  return <h3>No Product Found In Store</h3>
+                }
+              }}
+          </Consumer>
+        </div>
+      </div>
     );
   }
 }
-
-// ProductList.propTypes = {};
 
 export default ProductList;
