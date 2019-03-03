@@ -15,7 +15,7 @@ class ProductList extends React.Component {
                 const { products } = value;
                 if (products) {
                   return products.map(product => {
-                    return <Product key={product.id} product={product} />
+                    return <Product key={product.id}  product={product} />
                   })
                 } else {
                   return <h3>No Product Found In Store</h3>

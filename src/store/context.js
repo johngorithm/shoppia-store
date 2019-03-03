@@ -9,7 +9,8 @@ class Provider extends React.Component {
   state = {
     owner: "John Obi",
     products: [],
-    detailProduct
+    product: detailProduct,
+    cart: []
   };
 
   setProducts = () => {
@@ -22,13 +23,41 @@ class Provider extends React.Component {
     })
   }
 
+  updateDetail = (clickProduct) => {
+    this.setState({
+      product: clickProduct
+    });
+  }
+
+  addToCart = (product) => {
+    const tempProducts = [...this.state.products];
+    const index = tempProducts.indexOf(product);
+
+    const productInView = tempProducts[index];
+    productInView.count = 1;
+    productInView.inCart = true;
+    productInView.total = productInView.price;
+
+    // Changing state
+    this.setState(() => {
+      return {
+        products: tempProducts,
+        cart: [...this.state.cart, productInView]
+      }
+    })
+  }
+
   componentDidMount() {
     this.setProducts();
   }
 
   render() {
     return (
-      <Context.Provider value={this.state}>
+      <Context.Provider value={{
+        ...this.state,
+        addToCart: this.addToCart,
+        updateDetail: this.updateDetail
+      }}>
         {this.props.children}
       </Context.Provider>
     );

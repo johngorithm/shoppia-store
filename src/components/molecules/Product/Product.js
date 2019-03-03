@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { Consumer } from '../../../store/context';
 
 class Product extends React.Component {
 
@@ -9,29 +10,36 @@ class Product extends React.Component {
     const { id, img, title, price, inCart } = this.props.product;
     return (
       <Fragment>
-        <ProductWrapper className="col-10 mx-auto my-3 col-lg-3 col-md-4 col-sm-6">
-          <div className="card">
-            <div className="image-container p-5" onClick={() => console.log("I am clicked: "+id)}>
-              <Link to="/details">
-                <img src={img} alt="product" className="card-img-top"/>
-              </Link>
-              <button 
-                className="add-to-cart-btn"
-                onClick={() => console.log("added to cart")}
-                disabled={inCart}
-              >
-                { inCart ? 
-                  (<p className="in-cart-p">in cart</p>) : 
-                  (<i className="fas fa-cart-plus"></i>)
-                }
-              </button>
-            </div>
-            <div className="card-footer d-flex justify-content-between">
-              <p className="product-title align-self-center mb-0">{title}</p>
-              <Price className="product-price align-self-center mb-0">${price}</Price>
-            </div>
-          </div>
-        </ProductWrapper>
+        <Consumer>
+          {value => {
+            const { updateDetail, addToCart } = value;
+            return (
+              <ProductWrapper className="col-10 mx-auto my-3 col-lg-3 col-md-4 col-sm-6">
+                <div className="card">
+                  <div className="image-container p-5" onClick={() => updateDetail(this.props.product)}>
+                    <Link to="/details">
+                      <img src={img} alt={`product ${id}`} className="card-img-top"/>
+                    </Link>
+                    <button 
+                      className="add-to-cart-btn"
+                      onClick={() => addToCart(this.props.product)}
+                      disabled={inCart}
+                    >
+                      { inCart ? 
+                        (<p className="in-cart-p">in cart</p>) : 
+                        (<i className="fas fa-cart-plus"></i>)
+                      }
+                    </button>
+                  </div>
+                  <div className="card-footer d-flex justify-content-between">
+                    <p className="product-title align-self-center mb-0">{title}</p>
+                    <Price className="product-price align-self-center mb-0">${price}</Price>
+                  </div>
+                </div>
+              </ProductWrapper>
+            )
+          }}
+        </Consumer>
       </Fragment>
     );
   }
@@ -46,7 +54,7 @@ const ProductWrapper = styled.div`
   }
 
   .card {
-    box-shadow: 1px 2px 4px 0px rgba(0,0,0,0.1);
+    box-shadow: var(--mainBoxShadow);
     border: 0;
     transition: all 0.4s linear;
   }
