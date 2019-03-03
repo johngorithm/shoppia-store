@@ -7,8 +7,7 @@ import ProductList from './components/molecules/ProductList/ProductList';
 import Detail from './components/molecules/Detail/Detail';
 import Cart from './components/molecules/Cart/Cart';
 import Default from './components/molecules/Default/Default';
-
-// import logo from './logo.svg';
+// import { Provider } from './context';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -20,7 +19,7 @@ class App extends Component {
         <NavBar />
         <Switch>
           <Route exact path="/" component={ProductList} />
-          <Route exact path="/detail" component={Detail} />
+          <Route exact path="/details" component={Detail} />
           <Route exact path="/cart" component={Cart} />
           <Route component={Default} />
         </Switch>
