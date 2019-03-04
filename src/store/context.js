@@ -10,7 +10,9 @@ class Provider extends React.Component {
     owner: "John Obi",
     products: [],
     product: detailProduct,
-    cart: []
+    cart: [],
+    isModalOpen: true,
+    modalProduct: {}
   };
 
   setProducts = () => {
@@ -26,6 +28,20 @@ class Provider extends React.Component {
   updateDetail = (clickProduct) => {
     this.setState({
       product: clickProduct
+    });
+  }
+
+  showModal = (product) => {
+    this.setState(() => ({
+      modalProduct: product,
+      isModalOpen: true
+    }), () => console.log(this.state));
+  }
+
+  closeModal = () => {
+    this.setState({
+      isModalOpen: false,
+      modalProduct: {}
     });
   }
 
@@ -56,7 +72,9 @@ class Provider extends React.Component {
       <Context.Provider value={{
         ...this.state,
         addToCart: this.addToCart,
-        updateDetail: this.updateDetail
+        updateDetail: this.updateDetail,
+        showModal: this.showModal,
+        closeModal: this.closeModal
       }}>
         {this.props.children}
       </Context.Provider>
