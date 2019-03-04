@@ -11,8 +11,8 @@ class Provider extends React.Component {
     products: [],
     product: detailProduct,
     cart: [],
-    isModalOpen: true,
-    modalProduct: {}
+    isModalOpen: false,
+    modalProduct: detailProduct
   };
 
   setProducts = () => {

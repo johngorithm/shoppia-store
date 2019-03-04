@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import {Switch, Route} from 'react-router-dom';
+import Modal from './components/molecules/Modal/Modal';
 
 
 import NavBar from './components/molecules/NavBar/NavBar';
@@ -23,6 +24,7 @@ class App extends Component {
           <Route exact path="/cart" component={Cart} />
           <Route component={Default} />
         </Switch>
+        <Modal />
       </Fragment>
     );
   }

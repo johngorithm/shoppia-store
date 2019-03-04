@@ -7,6 +7,7 @@
   --darkGray: #484b4d;
   --lineGray: rgba(0,0,0,0.07);
   --mainBoxShadow: 1px 2px 4px 0px rgba(0,0,0,0.1);
+  --lineBorder: 1px solid var(--lineGray);
 }
 
 body {
@@ -27,5 +28,9 @@ body {
 p {
   margin: 0;
   padding: 0;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.font-quicksand {
   font-family: 'Quicksand', sans-serif;
 }
