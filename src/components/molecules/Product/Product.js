@@ -12,7 +12,7 @@ class Product extends React.Component {
       <Fragment>
         <Consumer>
           {value => {
-            const { updateDetail, addToCart } = value;
+            const { updateDetail, addToCart, showModal } = value;
             return (
               <ProductWrapper className="col-10 mx-auto my-3 col-lg-3 col-md-4 col-sm-6">
                 <div className="card">
@@ -22,7 +22,10 @@ class Product extends React.Component {
                     </Link>
                     <button 
                       className="add-to-cart-btn"
-                      onClick={() => addToCart(this.props.product)}
+                      onClick={() => {
+                        addToCart(this.props.product);
+                        showModal(this.props.product);
+                      }}
                       disabled={inCart}
                     >
                       { inCart ? 

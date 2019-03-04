@@ -16,6 +16,7 @@ class Detail extends React.Component {
       <Consumer>
         { (value) => {
           const {id, img, company, title, price, info, inCart} = value.product;
+          const { addToCart, showModal, product } = value;
 
           return (
             <DetailContainer className="container">
@@ -43,7 +44,10 @@ class Detail extends React.Component {
                       >Back To products</Button>
                     </Link>
                     <Button
-                      onClick={() => value.addToCart(value.product)}
+                      onClick={() => {
+                        addToCart(product);
+                        showModal(product);
+                      }}
                       textColor="goldenrod"
                       className="btn-add-to-cart"
                       disabled={inCart}
