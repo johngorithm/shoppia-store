@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { Consumer } from '../../../store/context';
 import {Button} from '../../atoms/Button';
+import BtnContainer from '../BtnContainer/BtnContainer';
 
 
 // import PropTypes from 'prop-types';
@@ -36,7 +37,7 @@ class Detail extends React.Component {
                     <h5 className="product-info-heading text-center">Description</h5>
                     <p className="product-info">{info}</p>
                   </div>
-                  <div className="btn-container d-flex justify-content-center">
+                  <BtnContainer className="btn-container d-flex justify-content-center">
                     <Link to="/">
                       <Button
                         className="btn-back-to-product"
@@ -52,7 +53,7 @@ class Detail extends React.Component {
                       className="btn-add-to-cart"
                       disabled={inCart}
                     >{inCart ? "In Cart" : "Add To Cart"}</Button>
-                  </div>
+                  </BtnContainer>
                 </div>
               </div>
             </DetailContainer>
@@ -109,17 +110,6 @@ const DetailContainer = styled.div`
       .product-info {
         color: var(--darkGray);
         padding: 0 0.8rem 0.8rem;
-      }
-    }
-    .btn-container {
-      border-top: 1px solid var(--lineGray);
-      padding: 0.5rem 0.8rem;
-
-      .btn-add-to-cart {
-        margin-left: 0.3rem;
-      }
-      .btn-back-to-product {
-        margin-right: 0.3rem
       }
     }
   }
