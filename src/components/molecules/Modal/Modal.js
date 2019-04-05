@@ -37,9 +37,6 @@ class Modal extends React.Component {
                           </Link>
                           <Link to="/cart">
                             <Button
-                              onClick={() => {
-                                console.log("Go to Cart");
-                              }}
                               textColor="goldenrod"
                               className="btn-add-to-cart"
                             >

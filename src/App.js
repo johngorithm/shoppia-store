@@ -6,7 +6,7 @@ import Modal from './components/molecules/Modal/Modal';
 import NavBar from './components/molecules/NavBar/NavBar';
 import ProductList from './components/molecules/ProductList/ProductList';
 import Detail from './components/molecules/Detail/Detail';
-import Cart from './components/molecules/Cart/Cart';
+import Cart from './components/molecules/Cart';
 import Default from './components/molecules/Default/Default';
 // import { Provider } from './context';
 

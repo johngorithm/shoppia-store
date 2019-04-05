@@ -1,4 +1,6 @@
-import React, {Fragment} from 'react';
+import React from 'react';
+import styled from 'styled-components';
+import Title from '../../atoms/Title';
 
 // import PropTypes from 'prop-types';
 
@@ -8,13 +10,24 @@ class Cart extends React.Component {
 
   render() {
     return (
-      <Fragment>
-        <h3>Cart</h3>
-      </Fragment>
+      <div className="container">
+        <CenteredTitle
+          color="var(--lighRed)"
+          className="text-title">My Cart</CenteredTitle>
+        <ItemContainer className="items-container row">
+          
+        </ItemContainer>
+      </div>
     );
   }
 }
 
 // Cart.propTypes = {};
+const ItemContainer = styled.div`
+  border: 1px solid black;
+`;
 
+const CenteredTitle = styled(Title)`
+  text-align: center;
+`;
 export default Cart;

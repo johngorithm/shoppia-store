@@ -12,7 +12,9 @@ class Provider extends React.Component {
     product: detailProduct,
     cart: [],
     isModalOpen: false,
-    modalProduct: detailProduct
+    modalProduct: detailProduct,
+    cartSubTotal: 0,
+    cartTax: 0,
   };
 
   setProducts = () => {
@@ -23,6 +25,21 @@ class Provider extends React.Component {
     this.setState({
       products: tempProducts
     })
+  }
+
+  increment = id => {
+    console.log("incremented");
+  }
+  decrement = id => {
+    console.log("decremented");
+  }
+
+  removeItem = id => {
+    console.log("removed");
+  }
+
+  clearCart = () => {
+    console.log("cart cleared");
   }
 
   updateDetail = (clickProduct) => {
@@ -74,7 +91,11 @@ class Provider extends React.Component {
         addToCart: this.addToCart,
         updateDetail: this.updateDetail,
         showModal: this.showModal,
-        closeModal: this.closeModal
+        closeModal: this.closeModal,
+        increment: this.increment,
+        decrement: this.decrement,
+        removeItem: this.removeItem,
+        clearCart: this.clearCart
       }}>
         {this.props.children}
       </Context.Provider>
