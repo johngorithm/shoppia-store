@@ -1,5 +1,7 @@
 ## Shoppia Store
-Shoppia is an e-commerce web site powered by React and Redux
+Shoppia is an e-commerce web site powered by React and Context API
+
+[![Build Status](https://travis-ci.com/johngorithm/shoppia-store.svg?branch=develop)](https://travis-ci.com/johngorithm/shoppia-store)
 
 
 ### Available Scripts
