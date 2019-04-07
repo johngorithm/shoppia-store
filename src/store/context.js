@@ -78,7 +78,20 @@ class Provider extends React.Component {
         products: tempProducts,
         cart: [...this.state.cart, productInView]
       }
-    });
+    }, () => this.setCostTotal());
+  }
+
+  setCostTotal = () => {
+    let subTotal = 0;
+    this.state.cart.map(product => subTotal += product.total);
+    const tempTax = 0.1 * subTotal;
+    const tax = parseFloat(tempTax.toFixed(2));
+
+    this.setState({
+      cartSubTotal: subTotal,
+      cartTax: tax,
+      cartTotal: subTotal + tax
+    })
   }
 
   componentDidMount() {
