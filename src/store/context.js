@@ -10,11 +10,12 @@ class Provider extends React.Component {
     owner: "John Obi",
     products: [],
     product: detailProduct,
-    cart: [],
+    cart: [detailProduct],
     isModalOpen: false,
     modalProduct: detailProduct,
     cartSubTotal: 0,
     cartTax: 0,
+    cartTotal: 0,
   };
 
   setProducts = () => {
@@ -24,7 +25,7 @@ class Provider extends React.Component {
     });
     this.setState({
       products: tempProducts
-    })
+    });
   }
 
   increment = id => {
@@ -77,7 +78,7 @@ class Provider extends React.Component {
         products: tempProducts,
         cart: [...this.state.cart, productInView]
       }
-    })
+    });
   }
 
   componentDidMount() {

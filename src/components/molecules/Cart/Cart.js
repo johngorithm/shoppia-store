@@ -1,6 +1,11 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import React from 'react';
 import styled from 'styled-components';
-import Title from '../../atoms/Title';
+import Title3 from '../../atoms/Title';
+import ItemsContainer from './ItemsContainer';
+import CardItem from './CartItem';
+import {detailProduct} from '../../../data';
+import { Consumer } from '../../../store/context';
 
 // import PropTypes from 'prop-types';
 
@@ -11,23 +16,44 @@ class Cart extends React.Component {
   render() {
     return (
       <div className="container">
-        <CenteredTitle
-          color="var(--lighRed)"
-          className="text-title">My Cart</CenteredTitle>
-        <ItemContainer className="items-container row">
-          
-        </ItemContainer>
+        <Title3
+          className="text-title">
+            Shopping Cart
+        </Title3>
+        <ItemsContainer className="items-container">
+          <Consumer>
+            { value => {
+              const { cart,cartSubTotal, cartTax, cartTotal } = value;
+              if (cart.length > 0) {
+                return (<React.Fragment>
+                  {cart.map((product) => <CardItem key={product.id} product={product}></CardItem>)}
+
+                  <CostDetail>
+                    <p>Sub Total: <span>{cartSubTotal}</span> </p>
+                    <p>Tax: <span>{cartTax}</span> </p>
+                    <p>Total: <span>{cartTotal}</span> </p>
+                  </CostDetail>
+                </React.Fragment>)
+                
+              } else {
+                return (<h4>No item in cart</h4>);
+              }
+            }}
+          </Consumer>
+        </ItemsContainer>
       </div>
     );
   }
 }
 
 // Cart.propTypes = {};
-const ItemContainer = styled.div`
-  border: 1px solid black;
+const CostDetail = styled.div`
+  text-align: right;
+  font-weight: 500;
+  font-size: 1.1rem;
 `;
 
-const CenteredTitle = styled(Title)`
-  text-align: center;
-`;
+
+
+
 export default Cart;
