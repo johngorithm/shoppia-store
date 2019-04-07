@@ -28,9 +28,9 @@ class Cart extends React.Component {
                   {cart.map((product) => <CardItem key={product.id} product={product}></CardItem>)}
 
                   <CostDetail>
-                    <p>Sub Total: <span>{cartSubTotal}</span> </p>
-                    <p>Tax: <span>{cartTax}</span> </p>
-                    <p>Total: <span>{cartTotal}</span> </p>
+                    <p>Sub Total: <span>$ {cartSubTotal}</span> </p>
+                    <p>Tax: <span>$ {cartTax}</span> </p>
+                    <p>Total: <span>$ {cartTotal}</span> </p>
                   </CostDetail>
                 </React.Fragment>)
                 
@@ -50,6 +50,9 @@ const CostDetail = styled.div`
   text-align: right;
   font-weight: 500;
   font-size: 1.1rem;
+  p span {
+    font-weight: 600;
+  }
 `;
 
 
