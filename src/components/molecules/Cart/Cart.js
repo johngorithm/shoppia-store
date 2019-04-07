@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import Title3 from '../../atoms/Title';
 import ItemsContainer from './ItemsContainer';
 import CardItem from './CartItem';
-import {detailProduct} from '../../../data';
 import { Consumer } from '../../../store/context';
 
 // import PropTypes from 'prop-types';
