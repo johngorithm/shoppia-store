@@ -11,7 +11,8 @@ import CountManager from '../CountManager';
 
 class CardItem extends React.Component {
   render() {
-    const {id, title, img, count, total } = this.props.product;
+    const {title, img, count, total } = this.props.product;
+    const {product} = this.props;
     return (
       <CartItemContainer className="row align-items-center">
         <div className="cart-inner-item col-xs-12 col-sm-12 col-md-12 col-lg-2">
@@ -26,9 +27,9 @@ class CardItem extends React.Component {
               const { increment, decrement } = value;
               return (
                 <CountManager>
-                  <div onClick={() => decrement(id)} className="decrement">-</div>
+                  <div onClick={() => decrement(product)} className="decrement">-</div>
                   <div className="counter">{count}</div>
-                  <div onClick={() => increment(id)} className="increment">+</div>
+                  <div onClick={() => increment(product)} className="increment">+</div>
                 </CountManager>
               )
             }}
@@ -79,7 +80,11 @@ const CartItemContainer = styled.div`
   #delete-item {
     padding-top: 10px;
     border-top: var(--lineBorder);
-    cursor: pointer;
+    i {
+      cursor: pointer;
+      font-size: 1.3rem;
+      padding: 0.4rem;
+    }
   }
   @media screen and (min-width: 992px) {
     #product-name {
@@ -91,6 +96,7 @@ const CartItemContainer = styled.div`
     }
     #delete-item {
       border-top: 0;
+      padding-top: 0;
     }
   }
 `;
