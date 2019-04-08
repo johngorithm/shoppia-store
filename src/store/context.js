@@ -35,12 +35,28 @@ class Provider extends React.Component {
     console.log("decremented");
   }
 
-  removeItem = id => {
-    console.log("removed");
+  // Remove item from cart functionality
+  removeItem = product => {
+    let tempProducts = [...this.state.products];
+    let tempCart = [...this.state.cart];
+
+    tempCart = tempCart.filter(item => item.id !== product.id);
+
+    const indexOfRemovedItem = tempProducts.indexOf(product);
+    const removedItemRef = tempProducts[indexOfRemovedItem];
+
+    removedItemRef.inCart = false;
+    removedItemRef.count = 0;
+    removedItemRef.total = 0;
+
+    this.setState({
+      cart: [...tempCart],
+      products: [...tempProducts]
+    }, () => this.setCostTotal());
   }
 
+  // Clear cart functionality
   clearCart = () => {
-    console.log("Cart Cleared!");
     this.setState({
       cart: [],
       cartSubTotal: 0,
@@ -51,19 +67,22 @@ class Provider extends React.Component {
     });
   }
 
+  // Update detail product state.
   updateDetail = (clickProduct) => {
     this.setState({
       product: clickProduct
     });
   }
 
+  // Show product detail modal.
   showModal = (product) => {
     this.setState(() => ({
       modalProduct: product,
       isModalOpen: true
-    }), () => console.log(this.state));
+    }));
   }
 
+  // Close product detail modal.
   closeModal = () => {
     this.setState({
       isModalOpen: false,
@@ -71,6 +90,7 @@ class Provider extends React.Component {
     });
   }
 
+  // Add item to cart
   addToCart = (product) => {
     const tempProducts = [...this.state.products];
     const index = tempProducts.indexOf(product);
@@ -89,9 +109,11 @@ class Provider extends React.Component {
     }, () => this.setCostTotal());
   }
 
+  // Total Cost calculation
   setCostTotal = () => {
     let subTotal = 0;
     this.state.cart.map(product => subTotal += product.total);
+    // 10% tax calculation.
     const tempTax = 0.1 * subTotal;
     const tax = parseFloat(tempTax.toFixed(2));
 

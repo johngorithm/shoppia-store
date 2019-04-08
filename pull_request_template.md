@@ -5,8 +5,10 @@
 - [x] 
 
 #### How should this be manually tested?
-- [x] 
-
+- [x] clone repo
+- [x] checkout into this branch
+- [x] run the app using `npm start`
+- [x] expect app to function as expected
 
 #### Any background context you want to provide?
 - No

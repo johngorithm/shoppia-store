@@ -38,7 +38,13 @@ class CardItem extends React.Component {
           $ {total}
         </div>
         <div id="delete-item" className="cart-inner-item col-xs-12 col-sm-12 col-md-12 col-lg-1">
-          <i className="fas fa-trash mt-0"></i>
+          <Consumer>
+            { (value) => {
+              const { removeItem } = value;
+              return <i onClick={() => removeItem(this.props.product)} className="fas fa-trash mt-0"></i>
+            }}
+          </Consumer>
+          
         </div>
       </CartItemContainer>
     );
