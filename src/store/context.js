@@ -10,7 +10,7 @@ class Provider extends React.Component {
     owner: "John Obi",
     products: [],
     product: detailProduct,
-    cart: [detailProduct],
+    cart: [],
     isModalOpen: false,
     modalProduct: detailProduct,
     cartSubTotal: 0,
@@ -40,7 +40,15 @@ class Provider extends React.Component {
   }
 
   clearCart = () => {
-    console.log("cart cleared");
+    console.log("Cart Cleared!");
+    this.setState({
+      cart: [],
+      cartSubTotal: 0,
+      cartTax: 0,
+      cartTotal: 0,
+    }, () => {
+      this.setProducts();
+    });
   }
 
   updateDetail = (clickProduct) => {
@@ -91,7 +99,7 @@ class Provider extends React.Component {
       cartSubTotal: subTotal,
       cartTax: tax,
       cartTotal: subTotal + tax
-    })
+    });
   }
 
   componentDidMount() {

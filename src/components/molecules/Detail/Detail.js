@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { Consumer } from '../../../store/context';
-import {Button} from '../../atoms/Button';
+import Button from '../../atoms/Button';
 import BtnContainer from '../BtnContainer/BtnContainer';
 
 

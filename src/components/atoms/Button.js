@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Button = styled.button.attrs(({ textColor, borderColor }) => ({
+const Button = styled.button.attrs(({ textColor, borderColor }) => ({
   color: textColor || "black",
   borderColor: borderColor || textColor
 }))`
@@ -12,7 +12,7 @@ export const Button = styled.button.attrs(({ textColor, borderColor }) => ({
  cursor: pointer;
  padding: 5px 10px;
  background: white;
- text-transform: capitalize;
+ text-transform: uppercase;
  &:hover {
    background: ${props => props.color};
    color: white;
@@ -20,4 +20,6 @@ export const Button = styled.button.attrs(({ textColor, borderColor }) => ({
  &:focus {
    outline: 0;
  }
-`
+`;
+
+export default Button;
