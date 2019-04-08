@@ -84,6 +84,7 @@ const CartItemContainer = styled.div`
       cursor: pointer;
       font-size: 1.3rem;
       padding: 0.4rem;
+      color: var(--mainRed);
     }
   }
   @media screen and (min-width: 992px) {
