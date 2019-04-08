@@ -28,10 +28,20 @@ class Provider extends React.Component {
     });
   }
 
-  increment = id => {
-    console.log("incremented");
+  increment = product => {
+    let tempCart = [...this.state.cart];
+    const index = tempCart.indexOf(product);
+
+    const itemRef = tempCart[index];
+    itemRef.count += 1;
+    itemRef.total = itemRef.price * itemRef.count;
+
+
+    this.setState({
+      cart: [...tempCart]
+    }, () => this.setCostTotal());
   }
-  decrement = id => {
+  decrement = product => {
     console.log("decremented");
   }
 
