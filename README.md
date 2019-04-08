@@ -1,7 +1,7 @@
 ## Shoppia Store
 Shoppia is an e-commerce web site powered by React and Context API
 
-[![Build Status](https://travis-ci.com/johngorithm/shoppia-store.svg?branch=develop)](https://travis-ci.com/johngorithm/shoppia-store)
+[![Build Status](https://travis-ci.com/johngorithm/shoppia-store.svg?branch=develop)](https://travis-ci.com/johngorithm/shoppia-store) [![Netlify Status](https://api.netlify.com/api/v1/badges/c95529d5-f222-49a5-830e-f87c36476a12/deploy-status)](https://app.netlify.com/sites/shoppia/deploys)
 
 ##### Views
 `Products View`
