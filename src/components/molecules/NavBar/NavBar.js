@@ -1,11 +1,9 @@
 import React, {Fragment} from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../../../logo.svg';
 import './NavBar.css';
 import Button from '../../atoms/Button';
 import styled from 'styled-components';
 
-// import PropTypes from 'prop-types';
 
 class NavBar extends React.Component {
 
@@ -16,7 +14,7 @@ class NavBar extends React.Component {
       <Fragment>
         <StyledNav className="navbar navbar-expand-sm px-sm-5">
           <Link to="/">
-            <img src={logo} alt="logo" className="navbar-brand" />
+            <i className="fas fa-mobile-alt navbar-brand"></i>
           </Link>
 
           <ul className="navbar-nav align-items-center">
@@ -46,7 +44,10 @@ const StyledNav = styled.nav`
   .nav-link {
     color: white;
   }
-
+  i.navbar-brand {
+    color: var(--mainRed);
+    font-size: 2rem;
+  }
 `
 
 export default NavBar;
