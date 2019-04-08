@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { Button } from '../../atoms/Button';
+import Button from '../../atoms/Button';
 import { Consumer } from '../../../store/context';
 import BtnContainer from '../BtnContainer/BtnContainer';
 // import PropTypes from 'prop-types';

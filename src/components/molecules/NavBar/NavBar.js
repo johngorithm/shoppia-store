@@ -2,7 +2,7 @@ import React, {Fragment} from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../logo.svg';
 import './NavBar.css';
-import { Button } from '../../atoms/Button';
+import Button from '../../atoms/Button';
 import styled from 'styled-components';
 
 // import PropTypes from 'prop-types';
