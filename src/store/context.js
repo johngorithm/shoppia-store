@@ -18,6 +18,7 @@ class Provider extends React.Component {
     cartTotal: 0,
   };
 
+  // Loads products' data from store
   setProducts = () => {
     let tempProducts = [];
     storeProducts.forEach(product => {
@@ -28,6 +29,7 @@ class Provider extends React.Component {
     });
   }
 
+  // Increment Cart item quantity
   increment = product => {
     let tempCart = [...this.state.cart];
     const index = tempCart.indexOf(product);
@@ -35,14 +37,24 @@ class Provider extends React.Component {
     const itemRef = tempCart[index];
     itemRef.count += 1;
     itemRef.total = itemRef.price * itemRef.count;
-
-
+    
     this.setState({
       cart: [...tempCart]
     }, () => this.setCostTotal());
   }
   decrement = product => {
-    console.log("decremented");
+    let tempCart = [...this.state.cart];
+    const index = tempCart.indexOf(product);
+
+    const itemRef = tempCart[index];
+    if ( itemRef.count > 1) {
+      itemRef.count -= 1;
+      itemRef.total = itemRef.price * itemRef.count;
+
+      this.setState({
+        cart: [...tempCart]
+      }, () => this.setCostTotal());
+    }
   }
 
   // Remove item from cart functionality
